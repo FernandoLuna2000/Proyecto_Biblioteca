@@ -42,7 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceso_Datos.cs" />
+    <Compile Include="Actualizar.cs" />
+    <Compile Include="Eliminar.cs" />
+    <Compile Include="Insertar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visualizar.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ENTIDADES\ENTIDADES.csproj">
+      <Project>{9ED9424F-CEC3-46C7-990D-9D2EEA45339C}</Project>
+      <Name>ENTIDADES</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

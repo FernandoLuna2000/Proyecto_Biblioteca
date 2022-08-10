@@ -64,5 +64,42 @@ namespace DAL
             }
             return dataSet;
         }
+        public Boolean BaseSegura(string Sqlinstruc, SqlConnection prAb, ref string mensaje, SqlParameter[] evaluacion)
+        {
+            Boolean resp = false;
+            SqlCommand carrito = null;
+
+            if (prAb != null)
+            {
+                mensaje = "";
+                using (carrito = new SqlCommand())
+                {
+                    carrito.CommandText = Sqlinstruc;
+                    carrito.Connection = prAb;
+                    foreach (SqlParameter x in evaluacion)
+                    {
+                        carrito.Parameters.Add(x);
+                    }
+                    try
+                    {
+                        carrito.ExecuteNonQuery();
+                        mensaje = "Se agregaron correctamente";
+                        resp = true;
+                    }
+                    catch (Exception h)
+                    {
+                        mensaje = "Error : " + h.Message + " !";
+                        resp = false;
+                    }
+                }
+                prAb.Close();
+                prAb.Dispose();
+            }
+            else
+            {
+                mensaje = "Error de Conexión";
+            }
+            return resp;
+        }
     }
 }
