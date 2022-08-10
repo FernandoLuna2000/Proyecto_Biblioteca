@@ -161,7 +161,7 @@ namespace DAL
                     Nombre = row.Field<string>("nombre"),
                     Colonia = row.Field<string>("colonia"),
                     Cp = row.Field<int>("cp"),
-                    NomCentroTrabajo = row.Field<string>("nom_centro Trabajo"),
+                    //NomCentroTrabajo = row.Field<string>("nom_centro Trabajo"),
                     Telefono = row.Field<string>("telefono"),
                 }).ToList();//Se añade la información a la Lista
             }

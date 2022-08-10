@@ -2,6 +2,7 @@
 using ENTIDADES;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +53,35 @@ namespace DLL
         public List<Usuarios> L_Usuarios(ref string mensaje, ref string mensajeC)
         {
             return READ.ListaUsuarios(ref mensaje, ref mensajeC);
+        }
+
+        public DataTable tablaConsulta(ref string mensaje, ref string mensajeC)
+        {
+            string comandoMySql = "select * from consulta;", etiqueta = "Biblioteca3";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+            }
+            return dataTable;
+        }
+        public DataTable tablaMonografica(ref string mensaje, ref string mensajeC)
+        {
+            string comandoMySql = "select * from monografia;", etiqueta = "Biblioteca3";
+            DataSet dataSet = null;
+            DataTable dataTable = null;
+
+
+            dataSet = AC.LecturaSet(comandoMySql, AC.ConnectionEstablecida(ref mensajeC), ref mensaje, etiqueta);
+            if (dataSet != null)
+            {
+                dataTable = dataSet.Tables[0];
+            }
+            return dataTable;
         }
 
         public string Insert_Consulta(string[] nuevoDatos, ref string mensaje, ref string mensajeC)
@@ -350,5 +380,7 @@ namespace DLL
             }
             return resp;
         }
+
+        
     }
 }

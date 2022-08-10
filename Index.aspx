@@ -10,6 +10,22 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+            <br />
+            <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox2" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox3" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox4" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox5" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox6" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBox7" runat="server"></asp:ListBox>
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
+            <asp:GridView ID="GridView2" runat="server">
+            </asp:GridView>     
+            <br />
+            <br />
+            <br />
         </div>
     </form>
 </body>
